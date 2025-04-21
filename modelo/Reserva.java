@@ -1,77 +1,38 @@
 package modelo;
 
-    public class Reserva {
+public class Reserva {
 
-        //Atributos
+    //Atributos
 
-        private int numeroReserva;
-        private String pasaporte;
-        private String origen;
-        private String destino;
-        private String fecha;
-        private String hora;
+    private Pasajero pasajero;
+    private Vuelo vuelo;
 
-        //Constructor
+    public Reserva(Pasajero pasajero, Vuelo vuelo) {
+        this.pasajero = pasajero;
+        this.vuelo = vuelo;
+    }
 
-        public Reserva(int numeroReserva, String pasaporte, String origen, String destino, String fecha, String hora){
-            this.numeroReserva = numeroReserva;
-            this.pasaporte = pasaporte;
-            this.origen = origen;
-            this.destino = destino;
-            this.fecha = fecha;
-            this.hora = hora;
-        }
+    //metodos
 
-        //Getters
+    public void hacerReserva(int numeroReserva, Pasajero pasajero){
 
-        public int getNumeroReserva() {
-            return numeroReserva;
-        }
 
-        public String getPasaporte() {
-            return pasaporte;
-        }
+    }
 
-        public String getOrigen() {
-            return origen;
-        }
+    //Getters
 
-        public String getDestino() {
-            return destino;
-        }
+    public Pasajero getPasajero(){
+        return pasajero;
+    }
 
-        public String getFecha() {
-            return fecha;
-        }
+    public Vuelo getVuelo(){
+        return vuelo;
+    }
 
-        public String getHora() {
-            return hora;
-        }
+    //Setters . . .
 
-        //Setters
 
-        public int setNumeroreserva(int numeroreserva) {
-            return this.numeroReserva = numeroreserva;
-        }
 
-        public void setPasaporte(String pasaporte) {
-            this.pasaporte = pasaporte;
-        }
-
-        public void setOrigen(String origen) {
-            this.origen = origen;
-        }
-
-        public void setDestino(String destino) {
-            this.destino = destino;
-        }
-
-        public void setFecha(String fecha) {
-            this.fecha = fecha;
-        }
-
-        public void setHora(String hora) {
-            this.hora = hora;
-        }
 }
+
 

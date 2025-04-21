@@ -7,6 +7,16 @@ public class ConjuntoA implements ConjuntoTDA {
     private Vuelo[] a;
     private int cant;
 
+    //Getters
+
+    public int getCant(){
+        return cant;
+    }
+
+    public Vuelo getVuelo(int index) {
+        return a[index];
+    }
+
     public void InicializarConjunto(){
         a = new Vuelo[100];
         cant = 0;
@@ -44,15 +54,31 @@ public class ConjuntoA implements ConjuntoTDA {
         }
     }
 
-    public void MostrarVuelos() {
+    public void MostrarTodos() {
+        if (cant == 0) {
+            System.out.println("No hay vuelos disponibles.");
+        } else {
+            System.out.println("=== Vuelos  ===");
+            for (int i = 0; i < cant; i++) {
+                    System.out.println(a[i]);
+                }
+            }
+
+        }
+
+    public void MostrarVuelosDisponibles() {
         if (cant == 0) {
             System.out.println("No hay vuelos disponibles.");
         } else {
             System.out.println("=== Vuelos Disponibles ===");
             for (int i = 0; i < cant; i++) {
-                System.out.println(a[i]);
+                    if (a[i].getAsientosDisponibles() > 0) {
+                        System.out.println(a[i]);
+                    }
+                }
+
             }
         }
-    }
-}
 
+
+    }

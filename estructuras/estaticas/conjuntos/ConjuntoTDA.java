@@ -10,3 +10,5 @@ public interface ConjuntoTDA {
     void Sacar(Vuelo vuelo); //pre: conjunto inicializado
     boolean Pertenece(Vuelo vuelo); //pre: conjunto inicializado
 }
+
+
