@@ -24,19 +24,41 @@ public class Main {
         ColaLD cola = new ColaLD();
         cola.InicializarCola();
 
-        //inicia contadores y banderas
+        //contadores
         int numeroReserva = 1;
         int idVuelo = 1;
         int asientosDisponibles = 1;
         int opcion;
-        boolean vueloEncontrado = true;
-        boolean reservaRealizada = false;
+
+        //bandera
+        boolean vueloEncontrado = false;
 
         //precarga vuelos
         conjunto.Agregar(new Vuelo(idVuelo++, "Buenos Aires", "Madrid", 15, 5, 2025, "08:30", 50));
         conjunto.Agregar(new Vuelo(idVuelo++, "Nueva York", "Londres", 20, 6, 2025, "12:00", 30));
         conjunto.Agregar(new Vuelo(idVuelo++, "Tokio", "París", 10, 7, 2025, "23:15", 40));
         conjunto.Agregar(new Vuelo(idVuelo++, "Ciudad de México", "Roma", 5, 8, 2025, "16:45", 25));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Sídney", "Los Ángeles", 18, 9, 2025, "22:00", 60));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Toronto", "Berlín", 2, 10, 2025, "14:30", 35));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Lima", "Ámsterdam", 25, 11, 2025, "07:50", 45));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Dubai", "San Francisco", 30, 12, 2025, "03:10", 55));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Moscú", "Lisboa", 12, 1, 2026, "10:15", 40));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Seúl", "Estocolmo", 8, 2, 2026, "17:25", 38));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Bangkok", "Barcelona", 22, 3, 2026, "06:40", 42));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Buenos Aires", "Toronto", 14, 4, 2026, "13:20", 28));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Chicago", "Tokio", 9, 5, 2026, "21:00", 50));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Madrid", "Ciudad del Cabo", 19, 6, 2026, "11:10", 33));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Lisboa", "Santiago de Chile", 3, 7, 2026, "04:45", 26));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Roma", "Miami", 27, 8, 2026, "15:30", 48));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Londres", "Dubái", 16, 9, 2026, "08:20", 44));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Melbourne", "Doha", 11, 10, 2026, "19:55", 36));
+        conjunto.Agregar(new Vuelo(idVuelo++, "París", "Hong Kong", 5, 11, 2026, "12:35", 47));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Berlín", "Seúl", 29, 12, 2026, "23:05", 41));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Estambul", "Praga", 6, 1, 2026, "10:00", 0));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Montevideo", "Madrid", 18, 2, 2026, "13:40", 0));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Osaka", "Nueva Delhi", 22, 3, 2026, "02:15", 0));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Caracas", "Miami", 7, 4, 2026, "16:20", 0));
+        conjunto.Agregar(new Vuelo(idVuelo++, "Atenas", "Zúrich", 14, 5, 2026, "20:50", 0));
 
         //solicita datos del usuario
         System.out.print("Ingrese su nombre: ");
@@ -94,6 +116,7 @@ public class Main {
                     //aumenta el contador +1
                     idVuelo++;
 
+                    //mensaje de exito
                     System.out.println("\nEl vuelo ha sido agregado exitosamente.");
 
                     //finaliza la operacion
@@ -101,7 +124,7 @@ public class Main {
 
                 case 2:
 
-                    //mostramos una lista de los vuelos
+                    //mouestra una lista de los vuelos
                     conjunto.MostrarTodos();
 
                     //solicita el id del vuelo a reservar
@@ -110,19 +133,19 @@ public class Main {
 
                     sc.nextLine(); // consumir enter pendiente
 
-                    vueloEncontrado = false;
 
+                    //Recorre el conjunto para verificar los vuelos
                     for (int i = 0; i < conjunto.getCant(); i++) {
                         Vuelo vuelo = conjunto.getVuelo(i);
 
+                        //Si el id es igual al del vuelo, significa que lo encuentra
                         if (idSeleccionado == vuelo.getIdVuelo()) {
                             vueloEncontrado = true;
 
-                            // Verificar si el usuario ya tiene una reserva
+                            // Verifica si el usuario ya tiene una reserva
                             if (diccionario.Existe(pasaporte)) {
                                 System.out.println("Este número de pasaporte ya tiene una reserva.");
-                                reservaRealizada = true; // No se realiza reserva
-                                break; // Salimos del bucle y regresamos al menú
+                                break; // Sale del bucle y regresa al menu
                             }
 
                             if (vuelo.getAsientosDisponibles() > 0) {
@@ -199,7 +222,7 @@ public class Main {
                         } else {
                             System.out.println("No se encontró una reserva con ese número.");
                         }
-                    }else {
+                    } else {
                             System.out.println("No se encontró una reserva con ese número.");
                         }
 
@@ -215,7 +238,7 @@ public class Main {
                             break;
 
                         case 0:
-                            System.out.println("Saliendo.");
+                            System.out.println("Saliendo...");
                             break;
 
                         default:
@@ -223,6 +246,7 @@ public class Main {
 
                             //finaliza la operacion
                             break;
+
                     }
             }
             while (opcion != 0) ;
@@ -231,6 +255,8 @@ public class Main {
 
         }
 }
+
+
 
 
 

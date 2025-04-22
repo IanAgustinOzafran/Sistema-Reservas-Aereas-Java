@@ -112,6 +112,7 @@ public class Vuelo {
         this.asientosDisponibles = asientosDisponibles;
     }
 
+    /*
     @Override
     public String toString(){
         return "Vuelo " + idVuelo +
@@ -120,6 +121,23 @@ public class Vuelo {
                 " | fecha:" + dia + "/" + mes + "/" + anio +
                 " | hora:" + hora +
                 " | asientos disponibles:" + asientosDisponibles;
+    }
+     */
+
+    @Override
+    public String toString() {
+
+        String mensajeExtra = "";
+        if (asientosDisponibles == 0) {
+            mensajeExtra = " (añadirse a la cola de espera)";
+        }
+
+        String texto = String.format(
+                "Vuelo %3d | origen: %-20s | destino: %-20s | fecha: %02d/%02d/%4d | hora: %5s | asientos disponibles: %2d%s",
+                idVuelo, origen, destino, dia, mes, anio, hora, asientosDisponibles, mensajeExtra
+        );
+
+        return texto;
     }
 
 }
