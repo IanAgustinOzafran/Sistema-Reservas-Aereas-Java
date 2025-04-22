@@ -1,7 +1,6 @@
 package estructuras.estaticas.diccionarios;
 
 import estructuras.estaticas.conjuntos.ConjuntoTDA;
-import modelo.Pasajero;
 import modelo.Reserva;
 
 public interface DiccionarioSimpleTDA {
