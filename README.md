@@ -1,24 +1,26 @@
-Escenario: Vuelos 
+# ✈️ Escenario: Vuelos 
 
-Consigna: Sistema de reservas de vuelos 
+## 🧾 Consigna: Sistema de reservas de vuelos 
 
-Debes implementar un sistema en Java que permita gestionar reservas de vuelos. El 
-sistema debe permitir la creación de vuelos, la reserva de pasajes y el manejo de listas 
-de espera en caso de vuelos completos. 
+- Implementar un sistema en Java que permita gestionar reservas de vuelos. 
 
-Requisitos: 
+- El sistema debe permitir la creación de vuelos, la reserva de pasajes y el manejo de listas de espera en caso de vuelos completos. 
 
-• Utilizar un conjunto para almacenar los vuelos disponibles. Cada vuelo debe 
-tener origen, destino, fecha, hora y cantidad de asientos. 
+## 🧩 Requisitos: 
 
-• Utilizar un diccionario para almacenar las reservas. La clave será el número 
-de reserva, y el valor debe incluir los datos del pasajero (nombre, apellido, 
-pasaporte) y del vuelo reservado. 
+-  ✅ Utilizar un **conjunto** para almacenar los vuelos disponibles. Cada vuelo debe tener origen, destino, fecha, hora y cantidad de asientos. 
 
-• Utilizar una cola de espera para los vuelos que no tengan asientos disponibles. 
+-  ✅ Utilizar un **diccionario** para almacenar las reservas. La clave será el número de reserva, y el valor debe incluir los datos del pasajero (nombre, apellido, pasaporte) y del   vuelo reservado. 
 
-• Cuando se cancela una reserva, el sistema debe liberar un asiento y permitir 
-que el primer pasajero en la cola de espera lo ocupe. 
+-  ✅ Utilizar una **cola** de espera para los vuelos que no tengan asientos disponibles. 
 
-• Incluir la posibilidad de consultar vuelos disponibles y ver el estado de reservas 
-y colas de espera. 
+-  ✅ Cuando se cancela una reserva, el sistema debe liberar un asiento y permitir que el primer pasajero en la cola de espera lo ocupe. 
+
+-  ✅ Incluir la posibilidad de consultar vuelos disponibles y ver el estado de reservas y colas de espera. 
+
+> 💡 Proyecto realizado por:
+> Lopez Lopez, Bautista;
+> Ozafran, Ian;
+> Camargo, Matias;
+> Raimondo, Bautista;
+> Rivela, Lazaro
