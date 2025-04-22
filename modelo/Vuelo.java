@@ -1,7 +1,8 @@
 package modelo;
 
-public class Vuelo {
+import estructuras.dinamicas.colas.ColaLD;
 
+public class Vuelo {
     //Atributos
     private int idVuelo;
     private String origen;
@@ -11,6 +12,7 @@ public class Vuelo {
     private int anio;
     private String hora;
     private int asientosDisponibles;
+    private ColaLD cola;
 
     //Constructor
     public Vuelo(int idVuelo, String origen, String destino, int dia, int mes, int anio, String hora, int asientosDisponibles) {
@@ -22,12 +24,13 @@ public class Vuelo {
         this.anio  = anio;
         this.hora = hora;
         this.asientosDisponibles = asientosDisponibles;
+        cola = new ColaLD();
+        cola.InicializarCola();
     }
 
     //Metodos
-
     public boolean reservarAsiento() { //baja el contador de asientos disponibles
-        if (asientosDisponibles > 0) {
+        if (asientosDisponibles > 0){
             asientosDisponibles--;
             return true;
         } else {
@@ -35,17 +38,16 @@ public class Vuelo {
         }
     }
 
-    public void cancelarAsiento(){
-
+    public void cancelarReserva() {
+        this.asientosDisponibles++;
     }
 
     //Getters
-
     public int getIdVuelo(){
         return idVuelo;
     }
 
-    public String getOrigen() {
+    public String getOrigen(){
         return origen;
     }
 
@@ -61,11 +63,11 @@ public class Vuelo {
         return anio;
     }
 
-    public String getDestino() {
+    public String getDestino(){
         return destino;
     }
 
-    public String getHora() {
+    public String getHora(){
         return hora;
     }
 
@@ -73,28 +75,54 @@ public class Vuelo {
         return asientosDisponibles;
     }
 
-    //Setters
+    public ColaLD getCola() {
+        return cola;
+    }
 
-    public void setOrigen(String origen) {
+    //Setters
+    public void setIdVuelo(int idVuelo){
+        this.idVuelo = idVuelo;
+    }
+
+    public void setOrigen(String origen){
         this.origen = origen;
     }
 
-    public void setDestino(String destino) {
+    public void setDia(int dia){
+        this.dia = dia;
+    }
+
+    public void setMes(int mes){
+        this.mes = mes;
+    }
+
+    public void setAnio(int anio){
+        this.anio = anio;
+    }
+
+    public void setDestino(String destino){
         this.destino = destino;
     }
 
-    public void setHora(String hora) {
+    public void setHora(String hora){
         this.hora = hora;
     }
 
+    public void setAsientosDisponibles(int asientosDisponibles){
+        this.asientosDisponibles = asientosDisponibles;
+    }
+
     @Override
-    public String toString() {
+    public String toString(){
         return "Vuelo " + idVuelo +
                 " | origen:" + origen +
                 " | destino:" + destino +
+                " | fecha:" + dia + "/" + mes + "/" + anio +
                 " | hora:" + hora +
                 " | asientos disponibles:" + asientosDisponibles;
     }
 
 }
+
+
 

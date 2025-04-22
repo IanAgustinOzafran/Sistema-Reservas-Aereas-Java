@@ -1,9 +1,7 @@
 package modelo;
 
 public class Reserva {
-
     //Atributos
-
     private Pasajero pasajero;
     private Vuelo vuelo;
 
@@ -12,27 +10,23 @@ public class Reserva {
         this.vuelo = vuelo;
     }
 
-    //metodos
-
-    public void hacerReserva(int numeroReserva, Pasajero pasajero){
-
-
-    }
-
     //Getters
-
-    public Pasajero getPasajero(){
+    public Pasajero getPasajero() {
         return pasajero;
     }
 
-    public Vuelo getVuelo(){
+    public Vuelo getVuelo() {
         return vuelo;
     }
 
-    //Setters . . .
+    //Setters
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
+    }
 
-
-
+    public void setVuelo(Vuelo vuelo) {
+        this.vuelo = vuelo;
+    }
 }
 
 

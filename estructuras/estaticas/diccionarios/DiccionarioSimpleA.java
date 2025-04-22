@@ -1,10 +1,7 @@
 package estructuras.estaticas.diccionarios;
 
-import estructuras.estaticas.conjuntos.ConjuntoTDA;
-import modelo.Pasajero;
-import estructuras.estaticas.conjuntos.ConjuntoA;
-import modelo.Reserva;
-import modelo.Vuelo;
+import estructuras.estaticas.conjuntos.*;
+import modelo.*;
 
 public class DiccionarioSimpleA implements DiccionarioSimpleTDA {
 
@@ -48,33 +45,29 @@ public class DiccionarioSimpleA implements DiccionarioSimpleTDA {
         return elementos[pos].reserva;
     }
 
+    public ConjuntoTDAEnteros ClavesNumeroReserva() {
+        ConjuntoTDAEnteros c = new ConjuntoEnterosA();
+        c.InicializarConjunto();
+        for (int i = 0; i < cant; i++)
+            c.Agregar(elementos[i].clave);
+        return c;
+    }
+
     public ConjuntoTDA Claves() {
         ConjuntoTDA c = new ConjuntoA();
         c.InicializarConjunto();
         for (int i = 0; i < cant; i++)
-            c.Agregar(elementos[i].vuelo);
+            c.Agregar(elementos[i].reserva.getVuelo());
         return c;
     }
 
-    public void MostrarDiccionario() {
-        if (cant == 0) {
-            System.out.println("No hay reservas registradas.");
-        } else {
-            System.out.println("=== Reservas registradas ===");
-            for (int i = 0; i < cant; i++) {
-                Elemento elem = elementos[i];
-                Reserva reserva = elem.reserva;
-                Pasajero pasajero = reserva.getPasajero();
-                Vuelo vuelo = reserva.getVuelo();
-
-                System.out.println("Número de reserva: " + elem.clave);
-                System.out.println("Pasajero: " + pasajero.getNombre() + " " + pasajero.getApellido());
-                System.out.println("Pasaporte: " + pasajero.getPasaporte());
-                System.out.println("Vuelo: " + vuelo.getOrigen() + " -> " + vuelo.getDestino() +
-                        " | Fecha: " + vuelo.getDia() + "/" + vuelo.getMes() + "/" + vuelo.getAnio() +
-                        " | Hora: " + vuelo.getHora());
-                System.out.println("--------------------------------------");
+    //metodo
+    public boolean Existe(int clave) {
+        for (int i = 0; i < cant; i++) {
+            if (elementos[i].clave == clave && elementos[i].reserva != null) {
+                return true;
             }
         }
+        return false;
     }
 }

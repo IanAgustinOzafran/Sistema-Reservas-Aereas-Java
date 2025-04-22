@@ -1,24 +1,19 @@
 package modelo;
 
 public class Pasajero {
-
     //Atributos
-
     private String nombre;
     private String apellido;
-    private String pasaporte;
+    private int pasaporte;
 
     //Constructor
-
-    public Pasajero(String nombre, String apellido, String pasaporte) {
-        super();
+    public Pasajero(String nombre, String apellido, int pasaporte) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.pasaporte = pasaporte;
     }
 
     //Getters
-
     public String getNombre() {
         return nombre;
     }
@@ -27,12 +22,11 @@ public class Pasajero {
         return apellido;
     }
 
-    public String getPasaporte() {
+    public int getPasaporte() {
         return pasaporte;
     }
 
     //Setters
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -41,10 +35,9 @@ public class Pasajero {
         this.apellido = apellido;
     }
 
-    public void setPasaporte(String pasaporte) {
+    public void setPasaporte(int pasaporte) {
         this.pasaporte = pasaporte;
     }
-
 }
 
 

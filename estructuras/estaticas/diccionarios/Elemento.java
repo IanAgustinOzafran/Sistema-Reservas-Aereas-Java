@@ -1,10 +1,10 @@
 package estructuras.estaticas.diccionarios;
 
-import modelo.Reserva;
-import modelo.Vuelo;
+import modelo.*;
 
-public class Elemento{
-    int clave;
-    Reserva reserva;
-    Vuelo vuelo;
-}
+    public class Elemento {
+        int clave;
+        Reserva reserva;
+        Vuelo vuelo;
+    }
+
